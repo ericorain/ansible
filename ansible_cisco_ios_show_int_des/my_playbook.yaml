@@ -1,0 +1,12 @@
+---
+- name: Running something
+  hosts: routers
+  gather_facts: False
+  connection: local
+  tasks:
+   - name: My Task
+     ios_command:
+         commands: show ip int brief
+     register: output
+   - name: Display task
+     debug: msg="{{ output.stdout_lines }}"

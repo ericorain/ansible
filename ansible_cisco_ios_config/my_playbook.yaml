@@ -1,0 +1,13 @@
+---
+- name: Running something
+  hosts: device1
+  gather_facts: False
+  connection: local
+  tasks:
+   - name: My Task
+     ios_config:
+         lines:
+           - ip address 192.168.254.1 255.255.255.0
+           - no shut
+         parents:
+           - interface E2/1

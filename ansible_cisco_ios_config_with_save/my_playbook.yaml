@@ -1,0 +1,11 @@
+---
+- name: Running something
+  hosts: routers
+  gather_facts: False
+  connection: local
+  tasks:
+   - name: My Task
+     ios_config:
+         lines:
+           - logging 192.168.0.1
+         save_when: modified
